@@ -10,7 +10,8 @@ $(BUILD_DIR):
 
 # Run cmake and make
 build_project: $(BUILD_DIR)
-	cd $(BUILD_DIR) && cmake .. && make
+	@echo "Building project..."
+	@echo "cd $(BUILD_DIR) && cmake .. && make"
 	@echo "\nBuild complete! To run the application, use either:\n"
 	@echo "  ./build/hello_arm \n"
 	@echo "or with \n"
@@ -18,10 +19,12 @@ build_project: $(BUILD_DIR)
 
 # Clean build directory
 clean:
-	rm -rf $(BUILD_DIR)
+	@echo "Cleaning up build directory..."
+	@rm -rf $(BUILD_DIR)
 
 # Run the executable
-run: all
-	./$(BUILD_DIR)/hello_arm
+run:
+	@echo "Running command: ./$(BUILD_DIR)/hello_arm \n"
+	@./$(BUILD_DIR)/hello_arm
 
 .PHONY: all build_project clean run 
